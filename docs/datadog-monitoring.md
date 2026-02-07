@@ -89,3 +89,74 @@ The Terraform module (`datadog_hana_backup_monitors`) allows specifying:
 This made it easy to roll out consistent monitoring across multiple environments while maintaining flexibility for environment-specific configurations.
 
 ---
+
+## Results
+
+### Before: Alert Fatigue
+
+**Scenario:** Backup starts at 2:00 AM  
+**What happened:**
+- Monitor triggers alert for EBS surge queue spike
+- On-call engineer gets paged
+- Alert clears automatically 15 minutes later
+- Engineer goes back to sleep
+- **Result:** False alarm, wasted on-call time, training team to ignore alerts
+
+### After: Intelligent Alerting
+
+**Normal backup scenario:**
+- Backup runs with expected surge queue increase
+- Anomaly detection recognizes pattern as normal
+- No alert triggered
+- On-call engineer sleeps peacefully
+
+**Actual problem scenario:**
+- Backup runs but surge queue is 40% higher than normal pattern
+- Anomaly detection identifies deviation from baseline
+- Alert triggers with context: "Surge queue length anomaly detected"
+- Engineer investigates and finds backup job is retrying due to network issues
+- **Result:** Real problem caught early, fixed before failure
+
+### Quantifiable Improvements
+
+- **Reduced false positive alerts** from backup operations by ~95%
+- **Improved on-call experience** - team stopped ignoring backup-related alerts
+- **Faster problem detection** - caught issues that would have been masked by threshold-based alerts
+- **Better baseline understanding** - visibility into how backup performance trends over time
+
+---
+
+## Expanding the Approach
+
+### Log Monitoring with Anomaly Detection
+
+Building on the success of surge queue monitoring, we applied the same principles to log monitoring for SAP HANA systems.
+
+#### Implementation
+
+**Log source:** `/var/log/messages` from SAP HANA servers
+
+**Pipeline processing:**
+- Parse and normalize log entries
+- Extract structured data (severity, component, timestamps)
+- Filter out expected noise while retaining signal
+
+**Index strategy:**
+- Create focused indexes for critical system and application health logs
+- Filter duplicate messages and routine status updates
+- Maintain searchability while reducing storage costs
+
+**Anomaly detection on excluded logs:**
+
+Even though certain log types were filtered from primary indexes, they weren't ignored completely. Anomaly detection monitors were implemented to track the *volume* of filtered messages.
+
+**Why this matters:**
+If you normally see 10 "connection timeout" warnings per day and suddenly see 1000, that's worth investigating—even if you filtered them out of your primary view.
+
+This approach provided:
+- Clean, focused log explorer for daily troubleshooting
+- Protection against missing emerging issues in "noisy" log categories
+- Reduced alert fatigue from known chattiness
+- Early warning system for unusual patterns
+
+---
