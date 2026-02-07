@@ -227,7 +227,7 @@ resource "datadog_monitor" "hana_backup_surge_queue" {
   name    = "SAP HANA Backup - Anomaly in EBS Surge Queue"
   type    = "query alert"
   
-  query = "avg(last_4h):anomalies(avg:aws.ebs.volume_queue_length{host:hana-prod-01,device:/dev/xvdf}, 'agile', 2, direction='above', interval=60, alert_window='last_15m', count_default_zero='true') >= 1"
+  query = "avg(last_4h):anomalies(avg:aws.ebs.volume_queue_length{host:xxxx-prod-01,device:/dev/xvdf}, 'agile', 2, direction='above', interval=60, alert_window='last_15m', count_default_zero='true') >= 1"
   
   message = <<-EOT
     EBS surge queue length is behaving abnormally during backup window.
