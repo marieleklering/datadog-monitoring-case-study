@@ -46,3 +46,46 @@ The obvious solution(raising alert thresholds) would create a new problem. If we
 The solution required alerts that understood the difference between "expected backup behavior" and "something is actually wrong."
 
 ---
+
+## The Solution
+
+### Anomaly Detection Instead of Static Thresholds
+
+After evaluating options, Datadog's anomaly detection algorithm was implemented for these monitors. This approach:
+
+1. **Learns normal patterns** - The algorithm establishes baselines for expected behavior during backup windows
+2. **Adapts over time** - As backup patterns change (longer jobs, more data), the baseline adjusts
+3. **Alerts on deviations** - Only triggers when behavior differs significantly from established patterns
+
+### Algorithm Selection: Agile
+
+Datadog's **Agile algorithm** was selected for this use case because:
+
+- **Quick adaptation** - Responds to recent changes in backup patterns
+- **Seasonal awareness** - Handles periodic variations (daily backups, weekly full backups)
+- **Reduced false positives** - Bounce level prevents alerts from routine fluctuations
+
+### Implementation Approach
+
+The solution was implemented as reusable Terraform modules that could be applied across multiple SAP HANA environments.
+
+**Configuration flexibility:**
+```hcl
+# Filter monitors by various AWS/infrastructure attributes
+hana_backup_surge_queue_monitor_filters = {
+  host           = "xxx-prod-01"
+  disk           = "/dev/xvdf"
+  iam_role       = "xx-xxx-backup"
+  security_group = "xx-backup-nodes"
+  tags           = ["environment:prod", "app:xxx-xxxx"]
+}
+```
+
+The Terraform module (`datadog_hana_backup_monitors`) allows specifying:
+- Target hosts and disks
+- IAM roles, security groups, Chef roles
+- Custom tags for filtering
+
+This made it easy to roll out consistent monitoring across multiple environments while maintaining flexibility for environment-specific configurations.
+
+---
