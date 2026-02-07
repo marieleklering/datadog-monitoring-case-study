@@ -36,7 +36,7 @@ These alerts fired predictably every time backups ran, leading the on-call team 
 
 ### Why Simple Threshold Adjustments Wouldn't Work
 
-The obvious solution—raising alert thresholds—would create a new problem. If we increased thresholds high enough to avoid alerts during normal backups, we'd miss:
+The obvious solution(raising alert thresholds) would create a new problem. If we increased thresholds high enough to avoid alerts during normal backups, we'd miss:
 
 - Backup jobs that started failing or taking longer than expected
 - Disk space issues from retention problems
