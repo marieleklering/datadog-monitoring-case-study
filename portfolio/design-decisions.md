@@ -64,3 +64,17 @@ Most case studies present clean success. Takeaway four acknowledges that the mon
 | **Honesty over polish** | Acknowledge what did not work on day one. A case study that admits iteration is more credible than one that presents clean success. |
 
 ---
+
+## Iteration and Improvements
+
+| **Version** | **Change** | **Why** |
+| --- | --- | --- |
+| v1.0 → v1.1 | Added "why threshold adjustment would not work" section | Early readers assumed the obvious solution had been missed. Preempting the objection removed that doubt. |
+| v1.1 → v1.2 | Replaced metrics bullet list with narrative scenarios in Results | Numbers without context were not landing. Scenarios made the human impact concrete. |
+| v1.2 → v1.3 | Strengthened bridge between backup monitoring and log monitoring sections | The connection between the two solutions felt bolted on. Reframing it as the same principle applied consistently fixed the logic. |
+| v1.3 → v1.4 | Sharpened opening to reframe alert fatigue as a design problem | Original opening described what happened. Revised opening named why it happened, which is the more important insight. |
+| v1.4 → v2.0 | Added real numbers to Results section | The 95% reduction figure was floating without before/after context. Grounding it in actual alert volumes made it credible. |
+
+**Planned improvements:**
+- Add a section on how to extend the approach to non-backup monitoring use cases
+- Document the algorithm selection process in more detail for readers evaluating Agile vs Basic
