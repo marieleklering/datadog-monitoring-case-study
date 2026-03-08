@@ -245,14 +245,6 @@ This implementation was developed while working as a Cloud Engineer managing mon
 
 The approach has been successfully applied to multiple SAP HANA production environments and extended to other infrastructure monitoring use cases.
 
-**Skills demonstrated:**
-- Problem identification and analysis
-- Solution design and implementation
-- Infrastructure as Code (Terraform)
-- Monitoring and observability best practices
-- Alert tuning and operational awareness
-- Technical documentation and knowledge sharing
-
 ---
 
 *This case study has been anonymized. All customer names, company details, and proprietary information have been removed or generalized.*
