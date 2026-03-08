@@ -125,7 +125,7 @@ In the month before implementation, backup operations were generating 5–6 fals
 
 ### Log Monitoring with Anomaly Detection
 
-Building on the success of surge queue monitoring, we applied the same principles to log monitoring for SAP HANA systems.
+Fixing the backup alerts solved the immediate pain, but it exposed a broader question: if static thresholds were failing us on metrics, were they failing us on logs too? The answer was yes. We applied the same anomaly detection thinking to SAP HANA log monitoring, not to index everything, but to make sure nothing important was hiding in the noise we'd learned to filter out.
 
 #### Implementation
 
