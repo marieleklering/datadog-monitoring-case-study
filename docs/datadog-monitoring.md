@@ -117,12 +117,7 @@ This made it easy to roll out consistent monitoring across multiple environments
 - Engineer investigates and finds backup job is retrying due to network issues
 - **Result:** Real problem caught early, fixed before failure
 
-### Quantifiable Improvements
-
-- **Reduced false positive alerts** from backup operations by ~95%
-- **Improved on-call experience** - team stopped ignoring backup-related alerts
-- **Faster problem detection** - caught issues that would have been masked by threshold-based alerts
-- **Better baseline understanding** - visibility into how backup performance trends over time
+In the month before implementation, backup operations were generating 5–6 false positive alerts per night, waking on-call engineers an average of 3 times nightly for events that resolved themselves within minutes. False positive alerts dropped by ~95% over the following month as the anomaly detection algorithm learned normal backup patterns, with the most significant reduction in the first week. Engineers stopped being paged for expected backup behavior, and started trusting alerts again when they did fire.
 
 ---
 
