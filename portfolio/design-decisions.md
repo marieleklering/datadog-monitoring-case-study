@@ -40,3 +40,15 @@ The observation that filtered logs should still be monitored for anomalies is on
 Most case studies present clean success. Takeaway four acknowledges that the monitors did not work correctly on day one and required adjustment. This was kept in deliberately. A reader evaluating judgment wants to know whether the writer understands that good monitoring is built through observation, not perfect initial configuration. Removing this section would have made the case study more polished and less credible.
 
 ---
+
+## Content Strategy Decisions
+
+| **Decision** | **Rationale** | **Evidence** |
+| --- | --- | --- |
+| Lead with human problem, not technology | Establishes that the solution was driven by operational pain, not technical preference. Readers decide early whether a writer understands the problem or just the tooling. | Documentation UX research shows readers make quick judgments about relevance. Context before solution increases engagement with technical content. |
+| Preempt the obvious objection | Answering "why not just raise the threshold?" before the reader asks it makes the solution choice feel deliberate rather than default. | Structured argumentation principle: address counterarguments before presenting a solution to increase credibility. |
+| Narrative scenarios over metrics table | Scenarios make the human impact concrete. Numbers alone strip the context that makes them meaningful. | Stripe and Twilio documentation research shows worked examples outperform abstract specifications for comprehension. |
+| Filtered logs insight placed mid-section | Keeps the extension of the core principle embedded rather than promoted, signaling consistency of thinking rather than a new idea. | Information architecture principle: elevation implies distinction. Keeping related ideas at the same level signals they share the same foundation. |
+| Admitting iteration in takeaways | Builds credibility by showing the implementation required adjustment. Perfect-success narratives are less trusted by technical readers. | Technical credibility research shows acknowledging limitations increases reader trust in remaining claims. |
+
+---
