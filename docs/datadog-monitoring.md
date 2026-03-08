@@ -6,7 +6,7 @@
 
 ## Overview
 
-This case study documents how we solved alert fatigue issues for SAP HANA database backups running on AWS by implementing Datadog's anomaly detection instead of traditional threshold-based monitoring.
+SAP HANA backup operations generate predictable I/O spikes and predictable alerts. When those alerts fire every night without meaning anything, on-call engineers stop responding to them. That's not an alert fatigue problem. It's a monitoring design problem. This case study documents how we replaced static threshold monitors with Datadog anomaly detection to fix the signal, not just the noise.
 
 **Technologies:** Datadog, AWS EBS, SAP HANA, Terraform, Anomaly Detection
 
