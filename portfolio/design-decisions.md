@@ -52,3 +52,15 @@ Most case studies present clean success. Takeaway four acknowledges that the mon
 | Admitting iteration in takeaways | Builds credibility by showing the implementation required adjustment. Perfect-success narratives are less trusted by technical readers. | Technical credibility research shows acknowledging limitations increases reader trust in remaining claims. |
 
 ---
+
+## Voice Principles
+
+| **Principle** | **Application** |
+| --- | --- |
+| **Lead with consequence** | Open sections with what the reader needs to understand before introducing the technical detail. "The team was being trained to dismiss alerts" before "we implemented anomaly detection." |
+| **Respect engineering intelligence** | Assume the reader has lived through the problems being described. Write for recognition, not explanation. |
+| **Be specific about failure** | Name what breaks and why, not just what works. "If we raised thresholds high enough to avoid alerts, we'd miss backup jobs that started failing" not "threshold adjustments have limitations." |
+| **Earn the number** | Every metric needs context before it lands. 95% reduction means nothing without "3 pages per night for alerts that cleared themselves in 15 minutes." |
+| **Honesty over polish** | Acknowledge what did not work on day one. A case study that admits iteration is more credible than one that presents clean success. |
+
+---
